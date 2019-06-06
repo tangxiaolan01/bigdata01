@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45eae425-f1af-4aca-85b8-9058a8814ec3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bigdata.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/out/production/bigdata/importData$1.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/out/production/bigdata/importData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/importData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../icif-app/pom.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../icif-app/src/main/java/com/htffund/etrade/icif/IcifDataSourceConfig.java" beforeDir="false" />
@@ -402,7 +397,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -412,9 +407,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="500" />
+    <option name="y" value="314" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -430,6 +425,11 @@
             <path>
               <item name="bigdata" type="b2602c69:ProjectViewProjectNode" />
               <item name="bigdata" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bigdata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bigdata" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bigdata" type="b2602c69:ProjectViewProjectNode" />
@@ -517,17 +517,25 @@
       <workItem from="1559531396700" duration="8857000" />
       <workItem from="1559701030588" duration="5782000" />
       <workItem from="1559719918405" duration="2191000" />
-      <workItem from="1559805260584" duration="1118000" />
+      <workItem from="1559805260584" duration="2548000" />
     </task>
+    <task id="LOCAL-00001" summary="系统">
+      <created>1559808826285</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559808826285</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17948000" />
+    <option name="totallyTimeSpent" value="19378000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="500" y="314" width="1346" height="688" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2397882" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24650078" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -562,6 +570,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="系统" />
+    <option name="LAST_COMMIT_MESSAGE" value="系统" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
