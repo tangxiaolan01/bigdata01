@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45eae425-f1af-4aca-85b8-9058a8814ec3" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bigdata.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/out/production/bigdata/importData$1.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/out/production/bigdata/importData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/importData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../icif-app/pom.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../icif-app/src/main/java/com/htffund/etrade/icif/IcifDataSourceConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../icif-app/src/main/java/com/htffund/etrade/icif/IcifMyBatisConfig.java" beforeDir="false" />
@@ -378,8 +384,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/importData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+            <state relative-caret-position="235">
+              <caret line="61" column="30" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -408,8 +414,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="500" />
-    <option name="y" value="314" />
+    <option name="x" value="510" />
+    <option name="y" value="50" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -454,6 +460,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -517,7 +524,7 @@
       <workItem from="1559531396700" duration="8857000" />
       <workItem from="1559701030588" duration="5782000" />
       <workItem from="1559719918405" duration="2191000" />
-      <workItem from="1559805260584" duration="2548000" />
+      <workItem from="1559805260584" duration="3042000" />
     </task>
     <task id="LOCAL-00001" summary="系统">
       <created>1559808826285</created>
@@ -526,14 +533,22 @@
       <option name="project" value="LOCAL" />
       <updated>1559808826285</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="系统">
+      <created>1559812444367</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1559812444367</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19378000" />
+    <option name="totallyTimeSpent" value="19872000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="500" y="314" width="1346" height="688" extended-state="0" />
+    <frame x="510" y="50" width="1346" height="688" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24650078" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -593,8 +608,8 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Integer.java" />
     <entry file="file://$PROJECT_DIR$/src/importData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+        <state relative-caret-position="235">
+          <caret line="61" column="30" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
