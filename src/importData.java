@@ -3,35 +3,68 @@ import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.IntStream;
 
 public class importData {
     public static void main(String args[]) throws InterruptedException {
-        long starTime = System.currentTimeMillis();
+/*        long starTime = System.currentTimeMillis();
         writerFast();
         long endTime = System.currentTimeMillis();
-        System.out.println("写文件需要 " + (endTime - starTime) + "ms");
-        //  reader();
+        System.out.println("写文件需要 " + (endTime - starTime) + "ms");*/
+
+        long starTime = System.currentTimeMillis();
+          readerFast();
+        long endTime = System.currentTimeMillis();
+        System.out.println("读文件需要 " + (endTime - starTime) + "ms");
     }
 
-    public static void reader() {
-        File f = new File("e:/txl/data/data.txt");
+    public static void readerFast() throws InterruptedException {
+  /*      for(int i = 0 ;i < 10 ;i++){
+            reader(i);
+        }*/
+      /*  ExecutorService executorService = Executors.newFixedThreadPool(2);
+        for (int i = 0; i < 10; i++) {
+            final int index = i;
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    reader(index);
+                }
+            });
+               executorService.shutdown();
+        executorService.awaitTermination(10, TimeUnit.HOURS);
+        }*/
+
+
+        List<Integer> arr = new ArrayList<>(10);
+        arr.parallelStream().forEach( index->reader(index));
+
+
+        System.out.println("write over");
+    }
+
+
+    public static void readerFastP(){
+        for(int i = 0 ;i < 10 ;i++){
+            reader(i);
+        }
+    }
+    public static void reader(Object index ) {
+        int i = (int)index;
+        File f = new File("e:/txl/data/data_"+i  +".txt");
 
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(f))) {
             String temp;
-            long starTime = System.currentTimeMillis();
+
             while ((temp = br.readLine()) != null) {
                 int num = Integer.valueOf(temp);
                 //refactor
                 map.merge(num, 1, (a, b) -> a + b);
             }
 
-            long endTime = System.currentTimeMillis();
-
-            System.out.println("读文件需要 " + (endTime - starTime) + "ms");
-
-            long startime2 = System.currentTimeMillis();
+           /* long startime2 = System.currentTimeMillis();
             // refactor
             Map.Entry<Integer, Integer> item = map.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get();
             Integer flagKey = item.getKey();
@@ -40,7 +73,7 @@ public class importData {
 
             System.out.println("排序需要 " + (endtime2 - startime2) + "ms");
             System.out.println("maxkey :" + flagKey + " flagvalue :" + flagValue);
-
+*/
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -59,8 +92,8 @@ public class importData {
         }
 
         try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f)))) {
-            for (int j = 0; j < 100000000; j++) {
-                int num = Math.round(random.nextFloat() * 1000.0f);
+            for (int j = 0; j < 2000000; j++) {
+                int num = random.nextInt(Integer.MAX_VALUE);
                 bw.write(Integer.toString(num));
                 bw.newLine();
             }
