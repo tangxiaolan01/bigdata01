@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 public class importData {
-    public  static  HashMap<Integer,Integer>  maxMap = new HashMap<>();
+    public static HashMap<Integer,Integer>  maxMap = new HashMap<>();
     public static void main(String args[]) throws InterruptedException {
 /*        long starTime = System.currentTimeMillis();
         writerFast();
@@ -17,8 +17,6 @@ public class importData {
           readerFast();
         long endTime = System.currentTimeMillis();
         System.out.println("读文件需要 " + (endTime - starTime) + "ms");
-        Map.Entry<Integer, Integer> item = maxMap.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get();
-        System.out.println("maxvalue is: "+ item.getKey() + "max times is :" + item.getValue());
 
        /* for(int key:maxMap.keySet())
         {
@@ -48,18 +46,52 @@ public class importData {
 */
 
 
-        List<Integer> arr = new ArrayList<>(10);
+        /*List<Integer> arr = new ArrayList<>(10);
         for ( int i = 0;i< 10 ;i++){
             arr.add(i);
         }
-        arr.parallelStream().forEach( index->reader(index,maxMap));
+        arr.parallelStream().forEach( index->reader(index ));*/
 
+        IntStream.range(0,10).parallel().forEach(index->{
+           Map<Integer,Integer> map = reader(index);
+           findMax((HashMap<Integer, Integer>) map);
+        });
         System.out.println("write over");
+
+
     }
 
+    public static void findMax(HashMap<Integer,Integer> map) {
+        List<HashMap<Integer, Integer>> arr = new ArrayList<>();
+        arr.add(map);
+        /*if (arr.size() == 10) {
+            arr.stream().map(HashMap::entrySet).reduce((first, second) -> {
+                Set<Map.Entry<Integer, Integer>> result = new HashSet<>();
+                first.forEach((fEntry) -> {
+                    second.forEach((sEntry) -> {
+                        if (fEntry.getKey().equals(sEntry.getKey())) {
+                            result.add();
+                        }
+                    });
+                });
 
 
-    public static void reader(Object index, HashMap<Integer,Integer> mapMax) {
+                return result;
+            });
+        }*/
+        HashMap<Integer, Integer> result = new HashMap<>();
+        if (arr.size() == 10) {
+            arr.stream().reduce(result, (first, second) -> {
+                first.keySet().forEach((key) -> {
+                    first.put(key,second.get(key) +first.get(key));
+                });
+
+                return first;
+            });
+        }
+    }
+
+    public static Map<Integer,Integer> reader(Object index ) {
         int i = (int)index;
         File f = new File("e:/txl/data/data_"+i  +".txt");
 
@@ -74,10 +106,7 @@ public class importData {
                 map.merge(num, 1, (a, b) -> a + b);
             }
 
-            Map.Entry<Integer, Integer> item = map.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get();
-            Integer flagKey = item.getKey();
-            Integer flagValue = item.getValue();
-            mapMax.put(item.getKey(),item.getValue());
+
            /* long startime2 = System.currentTimeMillis();
             // refactor
             Map.Entry<Integer, Integer> item = map.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get();
@@ -91,6 +120,7 @@ public class importData {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return map;
     }
 
     public static void writer(int i) {
