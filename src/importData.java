@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 public class importData {
     public static HashMap<Integer,Integer>  maxMap = new HashMap<>();
     public static void main(String args[]) throws InterruptedException {
-/*        long starTime = System.currentTimeMillis();
+     /*   long starTime = System.currentTimeMillis();
         writerFast();
         long endTime = System.currentTimeMillis();
         System.out.println("写文件需要 " + (endTime - starTime) + "ms");*/
@@ -18,78 +18,28 @@ public class importData {
         long endTime = System.currentTimeMillis();
         System.out.println("读文件需要 " + (endTime - starTime) + "ms");
 
-       /* for(int key:maxMap.keySet())
-        {
-            System.out.println("Key: "+key+" Value: "+maxMap.get(key));
-        }*/
+
 
     }
 
     public static void readerFast() throws InterruptedException {
-  /*      for(int i = 0 ;i < 10 ;i++){
-            reader(i);
-        }*/
-/*
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
-        for (int i = 0; i < 10; i++) {
-            final int index = i;
-            executorService.execute(new Runnable() {
-                @Override
-                public void run() {
-                    reader(index,maxMap);
-                }
-            });
 
-        }
-        executorService.shutdown();
-        executorService.awaitTermination(10, TimeUnit.HOURS);
-*/
+        Map.Entry<Integer,Integer> result = IntStream.range(0,3).parallel().mapToObj(importData::reader)
+                .reduce(new HashMap<Integer, Integer>(),(sum,element)->{
+                    element.forEach((k,v) ->sum.merge(k,v,(x,y)->x+y));
+                    return sum;
+                },(sum, element) -> {
+                    HashMap<Integer, Integer> newMap = new HashMap<>(sum);
+                    element.forEach((k, v) -> newMap.merge(k, v, (x, y) -> x + y));
+                    return newMap;
+                }).entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get();
 
-
-        /*List<Integer> arr = new ArrayList<>(10);
-        for ( int i = 0;i< 10 ;i++){
-            arr.add(i);
-        }
-        arr.parallelStream().forEach( index->reader(index ));*/
-
-        IntStream.range(0,10).parallel().forEach(index->{
-           Map<Integer,Integer> map = reader(index);
-           findMax((HashMap<Integer, Integer>) map);
-        });
+        System.out.println(result.getKey() +  "   "+result.getValue() + " result is  " + result.toString());
         System.out.println("write over");
-
-
     }
 
-    public static void findMax(HashMap<Integer,Integer> map) {
-        List<HashMap<Integer, Integer>> arr = new ArrayList<>();
-        arr.add(map);
-        /*if (arr.size() == 10) {
-            arr.stream().map(HashMap::entrySet).reduce((first, second) -> {
-                Set<Map.Entry<Integer, Integer>> result = new HashSet<>();
-                first.forEach((fEntry) -> {
-                    second.forEach((sEntry) -> {
-                        if (fEntry.getKey().equals(sEntry.getKey())) {
-                            result.add();
-                        }
-                    });
-                });
 
 
-                return result;
-            });
-        }*/
-        HashMap<Integer, Integer> result = new HashMap<>();
-        if (arr.size() == 10) {
-            arr.stream().reduce(result, (first, second) -> {
-                first.keySet().forEach((key) -> {
-                    first.put(key,second.get(key) +first.get(key));
-                });
-
-                return first;
-            });
-        }
-    }
 
     public static Map<Integer,Integer> reader(Object index ) {
         int i = (int)index;
@@ -106,17 +56,6 @@ public class importData {
                 map.merge(num, 1, (a, b) -> a + b);
             }
 
-
-           /* long startime2 = System.currentTimeMillis();
-            // refactor
-            Map.Entry<Integer, Integer> item = map.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get();
-            Integer flagKey = item.getKey();
-            Integer flagValue = item.getValue();
-            long endtime2 = System.currentTimeMillis();
-
-            System.out.println("排序需要 " + (endtime2 - startime2) + "ms");
-            System.out.println("maxkey :" + flagKey + " flagvalue :" + flagValue);
-*/
         } catch (IOException e) {
             e.printStackTrace();
         }
